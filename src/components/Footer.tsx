@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FacebookLogo, ChatText, Phone, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { FacebookLogo, InstagramLogo, ChatText, Phone, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import styles from "../styles/Footer.module.css";
 import { profile } from "../data/profile";
 
@@ -18,8 +18,13 @@ export default function Footer() {
               <p>{profile.designation.hi}</p>
               <div className={styles.social}>
                 {profile.social.facebook && (
-                  <a href={profile.social.facebook} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                  <a href={profile.social.facebook} target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Facebook">
                     <FacebookLogo weight="fill" size={20} />
+                  </a>
+                )}
+                {profile.social.instagram && (
+                  <a href={profile.social.instagram} target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Instagram">
+                    <InstagramLogo weight="fill" size={20} />
                   </a>
                 )}
               </div>

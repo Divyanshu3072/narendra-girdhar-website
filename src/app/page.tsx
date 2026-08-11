@@ -4,8 +4,34 @@ import Hero from "@/components/Hero";
 import TrustStrip from "@/components/TrustStrip";
 import { timelineEvents } from "@/data/timeline";
 import { visionPillars } from "@/data/vision";
+import { profile } from "@/data/profile";
 import styles from "./page.module.css";
-import { CaretRight } from "@phosphor-icons/react/dist/ssr";
+import { 
+  CaretRight, 
+  FacebookLogo, 
+  InstagramLogo,
+  Buildings,
+  Drop,
+  Sparkle,
+  Briefcase,
+  ShieldCheck,
+  Handshake
+} from "@phosphor-icons/react/dist/ssr";
+
+const getVisionIcon = (iconName: string) => {
+  switch (iconName) {
+    case 'Buildings': return <Buildings size={32} weight="regular" />;
+    case 'Drop': return <Drop size={32} weight="regular" />;
+    case 'Broom':
+    case 'Sparkle': return <Sparkle size={32} weight="regular" />;
+    case 'Student':
+    case 'Briefcase': return <Briefcase size={32} weight="regular" />;
+    case 'ShieldCheck': return <ShieldCheck size={32} weight="regular" />;
+    case 'Users':
+    case 'Handshake': return <Handshake size={32} weight="regular" />;
+    default: return <Sparkle size={32} weight="regular" />;
+  }
+};
 
 export default function Home() {
   return (
@@ -26,9 +52,18 @@ export default function Home() {
               <p>
                 संगठनात्मक कार्यों के साथ-साथ, वे आमजन की समस्याओं को सुनने, स्थानीय विकास के मुद्दों को उठाने और सामुदायिक कार्यक्रमों में निरंतर अपनी भागीदारी सुनिश्चित करते रहे हैं। उनका मुख्य फोकस चिड़ावा के विकास और यहां के निवासियों की समस्याओं के समाधान की दिशा में कार्य करना है।
               </p>
-              <Link href="/about" className="btn btn-text">
-                पूरा परिचय पढ़ें <CaretRight />
-              </Link>
+              <div style={{ display: "flex", gap: "1rem", marginTop: "0.5rem" }}>
+                {profile.social.instagram && (
+                  <a href={profile.social.instagram} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: "0.5rem 1rem", fontSize: "0.95rem" }}>
+                    <InstagramLogo size={20} weight="regular" /> Instagram
+                  </a>
+                )}
+                {profile.social.facebook && (
+                  <a href={profile.social.facebook} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: "0.5rem 1rem", fontSize: "0.95rem" }}>
+                    <FacebookLogo size={20} weight="regular" /> Facebook
+                  </a>
+                )}
+              </div>
             </div>
             <div className={styles.aboutImage}>
               <Image 
@@ -57,8 +92,7 @@ export default function Home() {
             {visionPillars.map((pillar) => (
               <div key={pillar.id} className={styles.visionCard}>
                 <div className={styles.visionIconWrapper}>
-                  {/* For V1 placeholder icons are fine. We will map to Phosphor later or use CSS */}
-                  <span className={styles.visionIcon}>{pillar.icon.charAt(0)}</span>
+                  <span className={styles.visionIcon}>{getVisionIcon(pillar.icon)}</span>
                 </div>
                 <h4>{pillar.title}</h4>
                 <p>{pillar.description}</p>

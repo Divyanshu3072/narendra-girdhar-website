@@ -13,6 +13,7 @@ export interface ProfileData {
   };
   social: {
     facebook: string;
+    instagram?: string;
     whatsapp?: string;
     email?: string;
   };
@@ -32,7 +33,8 @@ export const profile: ProfileData = {
     hi: "चिड़ावा, झुंझुनूं, राजस्थान",
   },
   social: {
-    facebook: "https://www.facebook.com/narendragirdharchirawa",
+    facebook: "https://www.facebook.com/narendra.girdhar/",
+    instagram: "https://www.instagram.com/narendragirdhar/",
     email: "narendragirdhar@gmail.com"
   }
 };

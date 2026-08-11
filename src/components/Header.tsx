@@ -30,9 +30,6 @@ export default function Header() {
           <a href={mailtoLink} className={`btn btn-primary`}>
             <ChatText weight="bold" /> जनसमस्या बताएं
           </a>
-          <button className={styles.mobileMenuBtn}>
-            <List />
-          </button>
         </div>
       </div>
     </header>

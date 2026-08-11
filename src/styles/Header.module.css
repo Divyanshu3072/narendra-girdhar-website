@@ -60,20 +60,11 @@
   color: var(--text-primary);
 }
 
-.mobileMenuBtn {
-  display: none;
-  font-size: 1.5rem;
-  color: var(--text-primary);
-}
-
-@media (max-width: 992px) {
+@media (max-width: 767px) {
   .nav {
     display: none;
   }
   .actions .btn {
     display: none;
-  }
-  .mobileMenuBtn {
-    display: block;
   }
 }
